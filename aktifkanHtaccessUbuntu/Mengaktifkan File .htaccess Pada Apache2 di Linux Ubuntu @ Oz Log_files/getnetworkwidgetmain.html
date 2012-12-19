@@ -1,0 +1,47 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">
+a, a:visited{color:#3B5998;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;text-decoration:none;font-size:11px;}
+div.userlist{text-align:center;}
+div.userlist a{text-decoration:none;}
+div.userlist img{border:0;margin:3px;width:35px;height:35px;}
+body{font-family: lucida grande;font-size:11px;padding:2px;}
+#blogs img{width:38px;height:30px;}
+</style></head><body>
+<div id="fans" class="userlist"><div style="font-family:'lucida grande',tahoma;font-size:12px;">Followers (6)</div><a href="#" onclick='showUser("100002139546013"); return false;'><img title="Corel" src="getnetworkwidgetmain_data/371320_100002139546013_495781162_q.jpg"></a><a href="#" onclick='showUser("100000581586277"); return false;'><img title="Udir" src="getnetworkwidgetmain_data/372033_100000581586277_538748063_q.jpg"></a><a href="#" onclick='showUser("1420665048"); return false;'><img title="Teu" src="getnetworkwidgetmain_data/370437_1420665048_273392667_q.jpg"></a><a href="#" onclick='showUser("100001243401987"); return false;'><img title="Fhadiel" src="getnetworkwidgetmain_data/372589_100001243401987_1779636621_q.jpg"></a><a href="#" onclick='showUser("100002741718840"); return false;'><img title="Lindia" src="getnetworkwidgetmain_data/260976_100002741718840_1004758363_q.jpg"></a><a href="#" onclick='showUser("100003320818713"); return false;'><img title="Vitvot" src="getnetworkwidgetmain_data/187227_100003320818713_1178833508_q.jpg"></a><a href="#" onclick='showUser("1721702129"); return false;'><img title="Agix" src="getnetworkwidgetmain_data/202992_1721702129_227727550_q.jpg"></a></div>
+<div id="fan"></div>
+<script type="text/javascript">var blogId = 1019544;// Provide the XMLHttpRequest class for IE 5.x-6.x:
+if( typeof XMLHttpRequest == "undefined" ) XMLHttpRequest = function() {
+  try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch(e) {}
+  try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch(e) {}
+  try { return new ActiveXObject("Msxml2.XMLHTTP") } catch(e) {}
+  try { return new ActiveXObject("Microsoft.XMLHTTP") } catch(e) {}
+  throw new Error( "This browser does not support XMLHttpRequest." )
+};
+
+/**
+ * Show the user having the given index.
+ */
+function showUser(index) {
+    var request = new XMLHttpRequest();
+    request.open("GET", "/getnetworkwidgetfan?bid=" + blogId + "&index=" + index, true);
+    request.onreadystatechange = function(event) {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById("fans").style.display = "none";
+            document.getElementById("fan").style.display = "";
+            document.getElementById("fan").innerHTML = request.responseText;
+        }
+        else {
+            // Error
+        }
+    }
+    request.send(null);
+}
+
+/**
+ * Go back to the fans page.
+ */
+function back() {
+    document.getElementById("fans").style.display = "";
+    document.getElementById("fan").style.display = "none";
+}
+</script></body></html>
